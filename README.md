@@ -769,7 +769,6 @@ Structure :
 ```text
 my_tennis_club/
 ├── manage.py
-├── db.sqlite3
 ├── members/
 └── my_tennis_club/
 ```
@@ -1288,5 +1287,3 @@ python manage.py showmigrations
 python manage.py shell
 python manage.py createsuperuser
 ```
-
-
