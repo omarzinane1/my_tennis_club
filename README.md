@@ -1067,6 +1067,7 @@ git add .
 git commit -m "Update members model"
 git push
 ```
+---
 
 ---
 
@@ -1083,83 +1084,4 @@ python manage.py shell
 python manage.py createsuperuser
 ```
 
----
 
-# 37. 🧠 Résumé final
-
-Pour comprendre Django, retiens surtout ce flux :
-
-```text
-URL
- ↓
-urls.py
- ↓
-views.py
- ↓
-models.py
- ↓
-Database
- ↓
-views.py
- ↓
-template HTML
- ↓
-Browser
-```
-
-Et pour les changements de base de données :
-
-```text
-models.py
-   ↓
-makemigrations
-   ↓
-Migration
-   ↓
-migrate
-   ↓
-Database
-```
-
----
-
-# 🚀 Prochaines étapes
-
-Après ce mini-cours, tu peux continuer avec :
-
-1. Django Admin
-2. CRUD (Create, Read, Update, Delete)
-3. Formulaires Django
-4. Relations entre Models (`ForeignKey`, `ManyToManyField`)
-5. Authentication / Login / Logout
-6. Static files (CSS, JavaScript, images)
-7. Template inheritance
-8. Pagination
-9. Django REST Framework
-10. Déploiement du projet
-
----
-
-## ⭐ Commande de départ
-
-Pour reprendre le projet :
-
-```powershell
-cd my_tennis_club
-venv\Scripts\activate
-python manage.py runserver
-```
-
-Puis ouvre :
-
-```text
-http://127.0.0.1:8000/
-```
-
----
-
-## 📌 Auteur
-
-Projet personnel d'apprentissage Django.
-
-**My Tennis Club — Django Learning Project**
