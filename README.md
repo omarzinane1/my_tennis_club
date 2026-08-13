@@ -1068,6 +1068,211 @@ git commit -m "Update members model"
 git push
 ```
 ---
+18. 🧩 Django Add Master Template
+
+Quand une application Django possède plusieurs pages, on ne veut pas répéter le même code HTML dans chaque fichier.
+
+Par exemple, plusieurs pages peuvent avoir le même :
+
+<header>
+menu de navigation
+<footer>
+CSS
+structure HTML
+
+Pour éviter de répéter ce code, Django permet de créer un Master Template (template parent).
+
+📁 Structure
+
+On peut créer :
+
+templates/
+│
+├── master.html
+│
+└── members/
+    ├── index.html
+    └── about.html
+
+Le fichier master.html contient la structure commune de toutes les pages.
+
+1. 🏗️ Créer master.html
+
+Exemple :
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Tennis Club{% endblock %}</title>
+</head>
+
+<body>
+
+<nav>
+    <a href="{% url 'members' %}">Members</a>
+</nav>
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
+<hr>
+
+<footer>
+    <p>My Tennis Club</p>
+</footer>
+
+</body>
+</html>
+ 2. 🧱 Comprendre {% block %}
+
+Dans :
+
+{% block title %}
+{% endblock %}
+
+on crée une zone que les templates enfants pourront remplacer.
+
+Par exemple :
+
+{% block content %}
+{% endblock %}
+
+Cette zone contiendra le contenu spécifique de chaque page.
+
+3. 👶 Créer un Template enfant
+
+Exemple :
+
+templates/members/index.html
+{% extends "master.html" %}
+
+{% block title %}
+Members
+{% endblock %}
+
+{% block content %}
+
+<h1>Members</h1>
+
+<p>Bienvenue dans la page des membres.</p>
+
+{% endblock %}
+4. 🔗 {% extends %}
+
+Cette ligne :
+
+{% extends "master.html" %}
+
+signifie :
+
+Le fichier index.html hérite de la structure de master.html.
+
+Le template enfant réutilise donc automatiquement :
+
+le <html>
+le <head>
+le menu
+le footer
+les autres éléments du template parent
+5. 🎯 Résultat
+
+Le navigateur reçoit une page composée de :
+
+master.html
+       +
+index.html
+       ↓
+Page HTML finale
+
+Par exemple :
+
+------------------------------------------------
+My Tennis Club
+
+Members
+------------------------------------------------
+
+Members
+
+Bienvenue dans la page des membres.
+
+------------------------------------------------
+My Tennis Club
+------------------------------------------------
+6. 🔄 Plusieurs pages peuvent utiliser le même Master Template
+about.html
+{% extends "master.html" %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block content %}
+
+<h1>About</h1>
+
+<p>Bienvenue dans la page About.</p>
+
+{% endblock %}
+contact.html
+{% extends "master.html" %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+
+<h1>Contact</h1>
+
+<p>Contactez-nous.</p>
+
+{% endblock %}
+
+Les trois pages utilisent le même template parent :
+
+master.html
+    │
+    ├── index.html
+    ├── about.html
+    └── contact.html
+✅ Pourquoi utiliser un Master Template ?
+
+Sans Master Template :
+
+index.html
+    → header
+    → menu
+    → content
+    → footer
+
+about.html
+    → header
+    → menu
+    → content
+    → footer
+
+contact.html
+    → header
+    → menu
+    → content
+    → footer
+
+❌ Beaucoup de code répété.
+
+Avec un Master Template :
+
+master.html
+    ├── index.html
+    ├── about.html
+    └── contact.html
+
+✅ Moins de répétition
+✅ Code plus propre
+✅ Maintenance plus facile
+✅ Modifier le menu ou le footer à un seul endroit
 
 ---
 
