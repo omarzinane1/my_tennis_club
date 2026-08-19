@@ -1,6 +1,9 @@
 # 🏟️ My Tennis Club — Django Tutorial
 
-> Mini-projet Django créé pour apprendre Django étape par étape.>> **Django utilisé pendant ce projet : 5.2.16**> **Python : 3.11.9**
+> Mini-projet Django créé pour apprendre Django étape par étape.
+>
+> **Django utilisé pendant ce projet : 5.2.16**
+> **Python : 3.11.9**
 
 ---
 
@@ -10,7 +13,20 @@ Ce projet sert de support pratique pour apprendre les bases de Django.
 
 Nous allons progressivement comprendre :
 
-- ✅ Installation de Django- ✅ Création d'un projet Django- ✅ Création d'une application- ✅ `urls.py`- ✅ `views.py`- ✅ Templates HTML- ✅ `settings.py`- ✅ `INSTALLED_APPS`- ✅ Models- ✅ Base de données SQLite- ✅ Migrations- ✅ Django ORM- ✅ Django Shell- ✅ Git et GitHub
+- ✅ Installation de Django
+- ✅ Création d'un projet Django
+- ✅ Création d'une application
+- ✅ `urls.py`
+- ✅ `views.py`
+- ✅ Templates HTML
+- ✅ `settings.py`
+- ✅ `INSTALLED_APPS`
+- ✅ Models
+- ✅ Base de données SQLite
+- ✅ Migrations
+- ✅ Django ORM
+- ✅ Django Shell
+- ✅ Git et GitHub
 
 L'idée est de ne pas seulement copier les commandes, mais de comprendre **pourquoi** on les utilise.
 
@@ -22,19 +38,27 @@ Avant de commencer, installe Python.
 
 Vérifier Python :
 
-```powershellpython --version```
+```powershell
+python --version
+```
 
 Exemple :
 
-```textPython 3.11.9```
+```text
+Python 3.11.9
+```
 
 Vérifier Django :
 
-```powershellpython -m django --version```
+```powershell
+python -m django --version
+```
 
 Exemple :
 
-```text5.2.16```
+```text
+5.2.16
+```
 
 ---
 
@@ -42,7 +66,10 @@ Exemple :
 
 Créer un dossier de travail :
 
-```powershellmkdir Djangocd Django```
+```powershell
+mkdir Django
+cd Django
+```
 
 ---
 
@@ -50,7 +77,9 @@ Créer un dossier de travail :
 
 Créer le virtual environment :
 
-```powershellpython -m venv venv```
+```powershell
+python -m venv venv
+```
 
 ### Pourquoi utiliser `venv` ?
 
@@ -64,21 +93,29 @@ Cela évite de mélanger les dépendances de plusieurs projets.
 
 Sous Windows PowerShell :
 
-```powershellvenv\Scripts\activate```
+```powershell
+venv\Scripts\activate
+```
 
 Le terminal devient normalement :
 
-```text(venv) PS C:\Users\...\Django>```
+```text
+(venv) PS C:\Users\...\Django>
+```
 
 ---
 
 # 5. 📦 Installer Django
 
-```powershellpython -m pip install django```
+```powershell
+python -m pip install django
+```
 
 Vérifier :
 
-```powershellpython -m django --version```
+```powershell
+python -m django --version
+```
 
 ---
 
@@ -86,11 +123,24 @@ Vérifier :
 
 Créer le projet :
 
-```powershelldjango-admin startproject my_tennis_club```
+```powershell
+django-admin startproject my_tennis_club
+```
 
 Structure :
 
-```textmy_tennis_club/│├── manage.py│└── my_tennis_club/    ├── __init__.py    ├── settings.py    ├── urls.py    ├── asgi.py    └── wsgi.py```
+```text
+my_tennis_club/
+│
+├── manage.py
+│
+└── my_tennis_club/
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    ├── asgi.py
+    └── wsgi.py
+```
 
 ## 🧠 Qu'est-ce qu'un projet Django ?
 
@@ -102,15 +152,22 @@ Le **projet** représente l'ensemble du site/application.
 
 Le fichier `manage.py` se trouve dans le dossier du projet.
 
-```powershellcd my_tennis_club```
+```powershell
+cd my_tennis_club
+```
 
 Vérifier :
 
-```powershelldir```
+```powershell
+dir
+```
 
 Tu dois voir :
 
-```textmanage.pymy_tennis_club```
+```text
+manage.py
+my_tennis_club
+```
 
 > ⚠️ Les commandes `python manage.py ...` doivent généralement être exécutées dans le dossier contenant `manage.py`.
 
@@ -118,19 +175,27 @@ Tu dois voir :
 
 # 8. 🚀 Lancer le serveur
 
-```powershellpython manage.py runserver```
+```powershell
+python manage.py runserver
+```
 
 Django affiche normalement :
 
-```textStarting development server at http://127.0.0.1:8000/```
+```text
+Starting development server at http://127.0.0.1:8000/
+```
 
 Ouvrir :
 
-```texthttp://127.0.0.1:8000/```
+```text
+http://127.0.0.1:8000/
+```
 
 Arrêter le serveur :
 
-```textCtrl + C```
+```text
+Ctrl + C
+```
 
 ---
 
@@ -140,17 +205,36 @@ Un projet peut contenir plusieurs applications.
 
 Exemple :
 
-```textProject│├── users├── products├── orders└── blog```
+```text
+Project
+│
+├── users
+├── products
+├── orders
+└── blog
+```
 
 Chaque app possède une responsabilité.
 
 Pour notre projet :
 
-```powershellpython manage.py startapp members```
+```powershell
+python manage.py startapp members
+```
 
 Structure :
 
-```textmembers/│├── migrations/├── __init__.py├── admin.py├── apps.py├── models.py├── tests.py└── views.py```
+```text
+members/
+│
+├── migrations/
+├── __init__.py
+├── admin.py
+├── apps.py
+├── models.py
+├── tests.py
+└── views.py
+```
 
 ---
 
@@ -158,19 +242,42 @@ Structure :
 
 Ouvrir :
 
-```textmy_tennis_club/settings.py```
+```text
+my_tennis_club/settings.py
+```
 
 Chercher :
 
-```pythonINSTALLED_APPS = [    'django.contrib.admin',    'django.contrib.auth',    'django.contrib.contenttypes',    'django.contrib.sessions',    'django.contrib.messages',    'django.contrib.staticfiles',]```
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
 
 Ajouter :
 
-```python'members',```
+```python
+'members',
+```
 
 Donc :
 
-```pythonINSTALLED_APPS = [    'django.contrib.admin',    'django.contrib.auth',    'django.contrib.contenttypes',    'django.contrib.sessions',    'django.contrib.messages',    'django.contrib.staticfiles',    'members',]```
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'members',
+]
+```
 
 ### Pourquoi ?
 
@@ -184,7 +291,9 @@ Parce qu'on indique à Django :
 
 Le fichier :
 
-```textmembers/views.py```
+```text
+members/views.py
+```
 
 contient les **views**.
 
@@ -192,13 +301,17 @@ Une view reçoit une requête et renvoie une réponse.
 
 Exemple :
 
-```pythonfrom django.http import HttpResponse
+```python
+from django.http import HttpResponse
 
-def members(request):    return HttpResponse("Bienvenue dans Members")```
+def members(request):
+    return HttpResponse("Bienvenue dans Members")
+```
 
 Ici :
 
-- `request` = requête du navigateur- `HttpResponse(...)` = réponse envoyée au navigateur
+- `request` = requête du navigateur
+- `HttpResponse(...)` = réponse envoyée au navigateur
 
 ---
 
@@ -208,13 +321,20 @@ Ici :
 
 Exemple :
 
-```pythonfrom django.urls import pathfrom . import views
+```python
+from django.urls import path
+from . import views
 
-urlpatterns = [    path("members/", views.members, name="members"),]```
+urlpatterns = [
+    path("members/", views.members, name="members"),
+]
+```
 
 Cette ligne :
 
-```pythonpath("members/", views.members, name="members")```
+```python
+path("members/", views.members, name="members")
+```
 
 signifie :
 
@@ -226,21 +346,33 @@ signifie :
 
 Dans le `urls.py` principal :
 
-```textmy_tennis_club/urls.py```
+```text
+my_tennis_club/urls.py
+```
 
 On peut écrire :
 
-```pythonfrom django.contrib import adminfrom django.urls import include, path
+```python
+from django.contrib import admin
+from django.urls import include, path
 
-urlpatterns = [    path("admin/", admin.site.urls),    path("", include("members.urls")),]```
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("members.urls")),
+]
+```
 
 ### Pourquoi :
 
-```pythonpath("", include("members.urls"))```
+```python
+path("", include("members.urls"))
+```
 
 `""` représente la racine :
 
-```texthttp://127.0.0.1:8000/```
+```text
+http://127.0.0.1:8000/
+```
 
 `include("members.urls")` signifie :
 
@@ -254,31 +386,43 @@ Cela permet de séparer les URLs par application.
 
 Exemple :
 
-```pythonpath("members/", views.members, name="members")```
+```python
+path("members/", views.members, name="members")
+```
 
 `name="members"` donne un **nom** à la route.
 
 Dans un template, on peut écrire :
 
-```html<a href="{% url 'members' %}">Members</a>```
+```html
+<a href="{% url 'members' %}">Members</a>
+```
 
 Au lieu de mettre directement :
 
-```html<a href="/members/">Members</a>```
+```html
+<a href="/members/">Members</a>
+```
 
 ### Avantage
 
 Si demain on change :
 
-```pythonpath("members/", ...)```
+```python
+path("members/", ...)
+```
 
 en :
 
-```pythonpath("users/", ...)```
+```python
+path("users/", ...)
+```
 
 on peut garder :
 
-```pythonname="members"```
+```python
+name="members"
+```
 
 et Django retrouvera automatiquement la bonne URL avec `{% url 'members' %}`.
 
@@ -290,15 +434,27 @@ Un template est généralement un fichier HTML.
 
 Exemple :
 
-```textmembers/└── templates/    └── index.html```
+```text
+members/
+└── templates/
+    └── index.html
+```
 
 `index.html` :
 
-```html<!DOCTYPE html><html><head>    <title>My Tennis Club</title></head><body>
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Tennis Club</title>
+</head>
+<body>
 
 <h1>Bienvenue dans My Tennis Club</h1>
 
-</body></html>```
+</body>
+</html>
+```
 
 ---
 
@@ -306,13 +462,18 @@ Exemple :
 
 Dans `views.py` :
 
-```pythonfrom django.shortcuts import render
+```python
+from django.shortcuts import render
 
-def members(request):    return render(request, "index.html")```
+def members(request):
+    return render(request, "index.html")
+```
 
 ### `render()`
 
-```pythonrender(request, "index.html")```
+```python
+render(request, "index.html")
+```
 
 signifie :
 
@@ -324,21 +485,32 @@ signifie :
 
 Dans `views.py` :
 
-```pythonfrom django.shortcuts import render
+```python
+from django.shortcuts import render
 
 def members(request):
 
-    context = {        "name": "Omar",        "age": 20,    }
+    context = {
+        "name": "Omar",
+        "age": 20,
+    }
 
-    return render(request, "index.html", context)```
+    return render(request, "index.html", context)
+```
 
 Dans `index.html` :
 
-```html<h1>Bonjour {{ name }}</h1><p>Age : {{ age }}</p>```
+```html
+<h1>Bonjour {{ name }}</h1>
+<p>Age : {{ age }}</p>
+```
 
 Résultat :
 
-```textBonjour OmarAge : 20```
+```text
+Bonjour Omar
+Age : 20
+```
 
 ---
 
@@ -346,15 +518,25 @@ Résultat :
 
 Afficher une variable :
 
-```django{{ name }}```
+```django
+{{ name }}
+```
 
 Condition :
 
-```django{% if age >= 18 %}    <p>Majeur</p>{% endif %}```
+```django
+{% if age >= 18 %}
+    <p>Majeur</p>
+{% endif %}
+```
 
 Boucle :
 
-```django{% for member in members %}    <p>{{ member.firstname }}</p>{% endfor %}```
+```django
+{% for member in members %}
+    <p>{{ member.firstname }}</p>
+{% endfor %}
+```
 
 ---
 
@@ -364,19 +546,33 @@ Un **Model** représente une table dans la base de données.
 
 Ouvrir :
 
-```textmembers/models.py```
+```text
+members/models.py
+```
 
 Exemple :
 
-```pythonfrom django.db import models
+```python
+from django.db import models
 
-class Member(models.Model):    firstname = models.CharField(max_length=255)    lastname = models.CharField(max_length=255)    phone = models.CharField(max_length=15)
+class Member(models.Model):
+    firstname = models.CharField(max_length=255)
+    lastname = models.CharField(max_length=255)
+    phone = models.CharField(max_length=15)
 
-    def __str__(self):        return self.firstname```
+    def __str__(self):
+        return self.firstname
+```
 
 ### Correspondance
 
-| Django | Base de données ||---|---|| `class Member` | Table || `firstname` | Colonne || `lastname` | Colonne || `phone` | Colonne || Objet `Member` | Ligne / enregistrement |
+| Django | Base de données |
+|---|---|
+| `class Member` | Table |
+| `firstname` | Colonne |
+| `lastname` | Colonne |
+| `phone` | Colonne |
+| Objet `Member` | Ligne / enregistrement |
 
 ---
 
@@ -384,13 +580,21 @@ class Member(models.Model):    firstname = models.CharField(max_length=255)  
 
 Même si on ne l'écrit pas :
 
-```pythonclass Member(models.Model):    ...```
+```python
+class Member(models.Model):
+    ...
+```
 
 Django ajoute automatiquement une clé primaire (`id`) si aucun champ primaire n'est défini.
 
 Exemple :
 
-```textid | firstname | lastname---|-----------|---------1  | Omar      | Zinane2  | Ali       | Ahmed```
+```text
+id | firstname | lastname
+---|-----------|---------
+1  | Omar      | Zinane
+2  | Ali       | Ahmed
+```
 
 ---
 
@@ -400,17 +604,23 @@ Quand on modifie `models.py`, la base de données n'est pas modifiée automatiqu
 
 On utilise :
 
-```powershellpython manage.py makemigrations```
+```powershell
+python manage.py makemigrations
+```
 
 Cette commande crée un fichier de migration.
 
 Exemple :
 
-```textmembers/migrations/0001_initial.py```
+```text
+members/migrations/0001_initial.py
+```
 
 Ensuite :
 
-```powershellpython manage.py migrate```
+```powershell
+python manage.py migrate
+```
 
 applique réellement les changements à la base de données.
 
@@ -420,7 +630,9 @@ applique réellement les changements à la base de données.
 
 Commande :
 
-```powershellpython manage.py sqlmigrate members 0001```
+```powershell
+python manage.py sqlmigrate members 0001
+```
 
 Elle montre le SQL généré pour la migration.
 
@@ -430,7 +642,13 @@ Elle affiche seulement ce qui sera exécuté.
 
 Exemple :
 
-```sqlCREATE TABLE "members_member" (    "id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,    "firstname" varchar(255) NOT NULL,    "lastname" varchar(255) NOT NULL);```
+```sql
+CREATE TABLE "members_member" (
+    "id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "firstname" varchar(255) NOT NULL,
+    "lastname" varchar(255) NOT NULL
+);
+```
 
 ---
 
@@ -438,19 +656,25 @@ Exemple :
 
 ### `makemigrations`
 
-```powershellpython manage.py makemigrations```
+```powershell
+python manage.py makemigrations
+```
 
 ➡️ Prépare la migration.
 
 ### `sqlmigrate`
 
-```powershellpython manage.py sqlmigrate members 0001```
+```powershell
+python manage.py sqlmigrate members 0001
+```
 
 ➡️ Affiche le SQL de la migration.
 
 ### `migrate`
 
-```powershellpython manage.py migrate```
+```powershell
+python manage.py migrate
+```
 
 ➡️ Applique la migration à la base.
 
@@ -462,11 +686,15 @@ Supposons que la table contient déjà des membres.
 
 On ajoute :
 
-```pythonphone = models.CharField(max_length=15)```
+```python
+phone = models.CharField(max_length=15)
+```
 
 Django peut afficher :
 
-```textIt is impossible to add a non-nullable field...```
+```text
+It is impossible to add a non-nullable field...
+```
 
 Pourquoi ?
 
@@ -480,17 +708,26 @@ On peut :
 
 Choisir :
 
-```text1```
+```text
+1
+```
 
 et donner par exemple :
 
-```python'0000000000'```
+```python
+'0000000000'
+```
 
 ### Option B — définir un `default` dans le Model
 
 Exemple :
 
-```pythonphone = models.CharField(    max_length=15,    default="0000000000")```
+```python
+phone = models.CharField(
+    max_length=15,
+    default="0000000000"
+)
+```
 
 ---
 
@@ -498,13 +735,22 @@ Exemple :
 
 Pour une date :
 
-```pythonfrom django.utils import timezone
+```python
+from django.utils import timezone
 
-class Member(models.Model):    firstname = models.CharField(max_length=255)    lastname = models.CharField(max_length=255)    phone = models.CharField(max_length=15)    joined_date = models.DateField(default=timezone.now)```
+class Member(models.Model):
+    firstname = models.CharField(max_length=255)
+    lastname = models.CharField(max_length=255)
+    phone = models.CharField(max_length=15)
+    joined_date = models.DateField(default=timezone.now)
+```
 
 Puis :
 
-```powershellpython manage.py makemigrationspython manage.py migrate```
+```powershell
+python manage.py makemigrations
+python manage.py migrate
+```
 
 ---
 
@@ -514,11 +760,18 @@ Django utilise souvent SQLite pour commencer.
 
 Le fichier est :
 
-```textdb.sqlite3```
+```text
+db.sqlite3
+```
 
 Structure :
 
-```textmy_tennis_club/├── manage.py├── members/└── my_tennis_club/```
+```text
+my_tennis_club/
+├── manage.py
+├── members/
+└── my_tennis_club/
+```
 
 SQLite est pratique pour apprendre et pour les petits projets.
 
@@ -528,21 +781,37 @@ SQLite est pratique pour apprendre et pour les petits projets.
 
 On peut ouvrir le shell Django :
 
-```powershellpython manage.py shell```
+```powershell
+python manage.py shell
+```
 
 Importer le modèle :
 
-```pythonfrom members.models import Member```
+```python
+from members.models import Member
+```
 
 Créer un membre :
 
-```pythonMember.objects.create(    firstname="Omar",    lastname="Zinane",    phone="0600000000")```
+```python
+Member.objects.create(
+    firstname="Omar",
+    lastname="Zinane",
+    phone="0600000000"
+)
+```
 
 Créer avec `save()` :
 
-```pythonmember = Member(    firstname="Ali",    lastname="Ahmed",    phone="0611111111")
+```python
+member = Member(
+    firstname="Ali",
+    lastname="Ahmed",
+    phone="0611111111"
+)
 
-member.save()```
+member.save()
+```
 
 ---
 
@@ -550,23 +819,33 @@ member.save()```
 
 Tous les membres :
 
-```pythonMember.objects.all()```
+```python
+Member.objects.all()
+```
 
 Premier membre :
 
-```pythonMember.objects.all()[0]```
+```python
+Member.objects.all()[0]
+```
 
 Compter :
 
-```pythonMember.objects.count()```
+```python
+Member.objects.count()
+```
 
 Premier élément sans provoquer d'`IndexError` si la table est vide :
 
-```pythonMember.objects.first()```
+```python
+Member.objects.first()
+```
 
 Un filtre :
 
-```pythonMember.objects.filter(firstname="Omar")```
+```python
+Member.objects.filter(firstname="Omar")
+```
 
 ---
 
@@ -574,19 +853,31 @@ Un filtre :
 
 Cette commande :
 
-```pythonMember.objects.all()[4]```
+```python
+Member.objects.all()[4]
+```
 
 demande le **5ᵉ objet** car Python commence à compter à `0`.
 
-```text0 → 1er1 → 2ème2 → 3ème3 → 4ème4 → 5ème```
+```text
+0 → 1er
+1 → 2ème
+2 → 3ème
+3 → 4ème
+4 → 5ème
+```
 
 Si la table contient seulement 2 membres :
 
-```pythonMember.objects.all()[4]```
+```python
+Member.objects.all()[4]
+```
 
 donnera :
 
-```textIndexError: list index out of range```
+```text
+IndexError: list index out of range
+```
 
 ---
 
@@ -594,7 +885,9 @@ donnera :
 
 Exemple :
 
-```textOperationalError: no such column: members_member.phone```
+```text
+OperationalError: no such column: members_member.phone
+```
 
 Cela signifie généralement :
 
@@ -602,7 +895,10 @@ Cela signifie généralement :
 
 Solution :
 
-```powershellpython manage.py makemigrationspython manage.py migrate```
+```powershell
+python manage.py makemigrations
+python manage.py migrate
+```
 
 Si Django demande un default pour un champ obligatoire, il faut fournir une valeur ou définir un `default` dans `models.py`.
 
@@ -610,11 +906,17 @@ Si Django demande un default pour un champ obligatoire, il faut fournir une vale
 
 # 31. 🧪 Voir l'état des migrations
 
-```powershellpython manage.py showmigrations members```
+```powershell
+python manage.py showmigrations members
+```
 
 Exemple :
 
-```textmembers [X] 0001_initial [X] 0002_member_phone```
+```text
+members
+ [X] 0001_initial
+ [X] 0002_member_phone
+```
 
 `[X]` signifie que la migration est appliquée.
 
@@ -624,11 +926,31 @@ Exemple :
 
 # 32. 🧭 Architecture simple Django
 
-```textBrowser   │   ▼urls.py   │   ▼views.py   │   ├── models.py ──► Database   │   ▼templates/   │   ▼Browser```
+```text
+Browser
+   │
+   ▼
+urls.py
+   │
+   ▼
+views.py
+   │
+   ├── models.py ──► Database
+   │
+   ▼
+templates/
+   │
+   ▼
+Browser
+```
 
 ### Rôle de chaque élément
 
-- `urls.py` → Quelle route ?- `views.py` → Que faire ?- `models.py` → Quelles données ?- `templates/` → Quoi afficher ?- Database → Où stocker les données ?
+- `urls.py` → Quelle route ?
+- `views.py` → Que faire ?
+- `models.py` → Quelles données ?
+- `templates/` → Quoi afficher ?
+- Database → Où stocker les données ?
 
 ---
 
@@ -636,7 +958,35 @@ Exemple :
 
 Exemple :
 
-```textmy_tennis_club/│├── .gitignore├── manage.py├── db.sqlite3│├── members/│   ├── migrations/│   │   ├── __init__.py│   │   └── 0001_initial.py│   ││   ├── templates/│   │   └── index.html│   ││   ├── admin.py│   ├── apps.py│   ├── models.py│   ├── tests.py│   ├── urls.py│   └── views.py│└── my_tennis_club/    ├── __init__.py    ├── settings.py    ├── urls.py    ├── asgi.py    └── wsgi.py```
+```text
+my_tennis_club/
+│
+├── .gitignore
+├── manage.py
+├── db.sqlite3
+│
+├── members/
+│   ├── migrations/
+│   │   ├── __init__.py
+│   │   └── 0001_initial.py
+│   │
+│   ├── templates/
+│   │   └── index.html
+│   │
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+│
+└── my_tennis_club/
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    ├── asgi.py
+    └── wsgi.py
+```
 
 ---
 
@@ -644,31 +994,51 @@ Exemple :
 
 Initialiser Git :
 
-```powershellgit init```
+```powershell
+git init
+```
 
 Créer un `.gitignore` :
 
-```gitignorevenv/__pycache__/*.pycdb.sqlite3.env.vscode/.idea/```
+```gitignore
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
+.env
+.vscode/
+.idea/
+```
 
 Ajouter les fichiers :
 
-```powershellgit add .```
+```powershell
+git add .
+```
 
 Créer le premier commit :
 
-```powershellgit commit -m "Initial Django tennis club project"```
+```powershell
+git commit -m "Initial Django tennis club project"
+```
 
 Renommer la branche :
 
-```powershellgit branch -M main```
+```powershell
+git branch -M main
+```
 
 Ajouter le repository GitHub :
 
-```powershellgit remote add origin https://github.com/USERNAME/my-tennis-club.git```
+```powershell
+git remote add origin https://github.com/USERNAME/my-tennis-club.git
+```
 
 Envoyer :
 
-```powershellgit push -u origin main```
+```powershell
+git push -u origin main
+```
 
 ---
 
@@ -676,21 +1046,38 @@ Envoyer :
 
 Quand tu travailles sur le projet :
 
-```powershellcd my_tennis_clubvenv\Scripts\activatepython manage.py runserver```
+```powershell
+cd my_tennis_club
+venv\Scripts\activate
+python manage.py runserver
+```
 
 Si tu modifies `models.py` :
 
-```powershellpython manage.py makemigrationspython manage.py migrate```
+```powershell
+python manage.py makemigrations
+python manage.py migrate
+```
 
 Puis Git :
 
-```powershellgit add .git commit -m "Update members model"git push```---18. 🧩 Django Add Master Template
+```powershell
+git add .
+git commit -m "Update members model"
+git push
+```
+---
+18. 🧩 Django Add Master Template
 
 Quand une application Django possède plusieurs pages, on ne veut pas répéter le même code HTML dans chaque fichier.
 
 Par exemple, plusieurs pages peuvent avoir le même :
 
-<header>menu de navigation<footer>CSSstructure HTML
+<header>
+menu de navigation
+<footer>
+CSS
+structure HTML
 
 Pour éviter de répéter ce code, Django permet de créer un Master Template (template parent).
 
@@ -698,7 +1085,13 @@ Pour éviter de répéter ce code, Django permet de créer un Master Template (t
 
 On peut créer :
 
-templates/│├── master.html│└── members/    ├── index.html    └── about.html
+templates/
+│
+├── master.html
+│
+└── members/
+    ├── index.html
+    └── about.html
 
 Le fichier master.html contient la structure commune de toutes les pages.
 
@@ -706,31 +1099,44 @@ Le fichier master.html contient la structure commune de toutes les pages.
 
 Exemple :
 
-<!DOCTYPE html><html><head>    <title>{% block title %}My Tennis Club{% endblock %}</title></head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Tennis Club{% endblock %}</title>
+</head>
 
 <body>
 
-<nav>    <a href="{% url 'members' %}">Members</a></nav>
+<nav>
+    <a href="{% url 'members' %}">Members</a>
+</nav>
 
 <hr>
 
-{% block content %}{% endblock %}
+{% block content %}
+{% endblock %}
 
 <hr>
 
-<footer>    <p>My Tennis Club</p></footer>
+<footer>
+    <p>My Tennis Club</p>
+</footer>
 
-</body></html> 2. 🧱 Comprendre {% block %}
+</body>
+</html>
+ 2. 🧱 Comprendre {% block %}
 
 Dans :
 
-{% block title %}{% endblock %}
+{% block title %}
+{% endblock %}
 
 on crée une zone que les templates enfants pourront remplacer.
 
 Par exemple :
 
-{% block content %}{% endblock %}
+{% block content %}
+{% endblock %}
 
 Cette zone contiendra le contenu spécifique de chaque page.
 
@@ -738,9 +1144,12 @@ Cette zone contiendra le contenu spécifique de chaque page.
 
 Exemple :
 
-templates/members/index.html{% extends "master.html" %}
+templates/members/index.html
+{% extends "master.html" %}
 
-{% block title %}Members{% endblock %}
+{% block title %}
+Members
+{% endblock %}
 
 {% block content %}
 
@@ -748,7 +1157,8 @@ templates/members/index.html{% extends "master.html" %}
 
 <p>Bienvenue dans la page des membres.</p>
 
-{% endblock %}4. 🔗 {% extends %}
+{% endblock %}
+4. 🔗 {% extends %}
 
 Cette ligne :
 
@@ -760,25 +1170,43 @@ Le fichier index.html hérite de la structure de master.html.
 
 Le template enfant réutilise donc automatiquement :
 
-le <html>le <head>le menule footerles autres éléments du template parent5. 🎯 Résultat
+le <html>
+le <head>
+le menu
+le footer
+les autres éléments du template parent
+5. 🎯 Résultat
 
 Le navigateur reçoit une page composée de :
 
-master.html       +index.html       ↓Page HTML finale
+master.html
+       +
+index.html
+       ↓
+Page HTML finale
 
 Par exemple :
 
-------------------------------------------------My Tennis Club
+------------------------------------------------
+My Tennis Club
 
-Members------------------------------------------------
+Members
+------------------------------------------------
 
 Members
 
 Bienvenue dans la page des membres.
 
-------------------------------------------------My Tennis Club------------------------------------------------6. 🔄 Plusieurs pages peuvent utiliser le même Master Templateabout.html{% extends "master.html" %}
+------------------------------------------------
+My Tennis Club
+------------------------------------------------
+6. 🔄 Plusieurs pages peuvent utiliser le même Master Template
+about.html
+{% extends "master.html" %}
 
-{% block title %}About{% endblock %}
+{% block title %}
+About
+{% endblock %}
 
 {% block content %}
 
@@ -786,9 +1214,13 @@ Bienvenue dans la page des membres.
 
 <p>Bienvenue dans la page About.</p>
 
-{% endblock %}contact.html{% extends "master.html" %}
+{% endblock %}
+contact.html
+{% extends "master.html" %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}
+Contact
+{% endblock %}
 
 {% block content %}
 
@@ -800,24 +1232,47 @@ Bienvenue dans la page des membres.
 
 Les trois pages utilisent le même template parent :
 
-master.html    │    ├── index.html    ├── about.html    └── contact.html✅ Pourquoi utiliser un Master Template ?
+master.html
+    │
+    ├── index.html
+    ├── about.html
+    └── contact.html
+✅ Pourquoi utiliser un Master Template ?
 
 Sans Master Template :
 
-index.html    → header    → menu    → content    → footer
+index.html
+    → header
+    → menu
+    → content
+    → footer
 
-about.html    → header    → menu    → content    → footer
+about.html
+    → header
+    → menu
+    → content
+    → footer
 
-contact.html    → header    → menu    → content    → footer
+contact.html
+    → header
+    → menu
+    → content
+    → footer
 
 ❌ Beaucoup de code répété.
 
 Avec un Master Template :
 
-master.html    ├── index.html    ├── about.html    └── contact.html
+master.html
+    ├── index.html
+    ├── about.html
+    └── contact.html
 
-✅ Moins de répétition✅ Code plus propre✅ Maintenance plus facile✅ Modifier le menu ou le footer à un seul endroit
-
+✅ Moins de répétition
+✅ Code plus propre
+✅ Maintenance plus facile
+✅ Modifier le menu ou le footer à un seul endroit
+---
 20. 🚫 Django Custom 404 Page
 
 Une erreur 404 (Page Not Found) apparaît lorsqu'un utilisateur demande une URL qui n'existe pas dans notre application Django.
@@ -982,43 +1437,6 @@ path("404/", ...)
 La page 404 n'est pas une page que l'utilisateur doit visiter directement.
 
 Django déclenche automatiquement la page 404 lorsqu'une URL demandée n'existe pas.
-
-🔄 Flux complet
-
-Utilisateur
-     │
-     ▼
-http://127.0.0.1:8000/test123/
-     │
-     ▼
-urls.py
-     │
-     ▼
-Aucune route trouvée
-     │
-     ▼
-404 Not Found
-     │
-     ▼
-templates/404.html
-     │
-     ▼
-Navigateur
-
-✅ Résumé
-
-Pour créer une page 404 personnalisée :
-
-1. Créer templates/404.html
-        ↓
-2. Configurer DIRS dans settings.py
-        ↓
-3. Mettre DEBUG = False
-        ↓
-4. Définir ALLOWED_HOSTS
-        ↓
-5. Tester avec une URL inexistante
-
 ---
 
 # 36. 🎯 Commandes Django à connaître
