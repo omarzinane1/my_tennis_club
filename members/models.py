@@ -9,4 +9,4 @@ class Member(models.Model):
     joined_date = models.DateField(default=timezone.now)
 
     def __str__(self):
-        return self.firstname
+        return f"{self.firstname} {self.lastname}"
