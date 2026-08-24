@@ -1,5 +1,12 @@
-<ul>
-  {% for x in mymembers %}
-    <li>{{ x.firstname }}</li>
-  {% endfor %}
-</ul>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="{% static 'myglobal.css' %}">
+<body>
+
+{% for x in mymembers %}
+  <h1>{{ x }}</h1>
+{% endfor %}
+
+</body>
+</html>
